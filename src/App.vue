@@ -2,38 +2,40 @@
   <div>
     <!-- Component can use self-closing tag if we use PascalCase component -->
     <TheHeader />
-    <BadgeList />
-    <UserInfo
-      :full-name="activeUser.name"
-      :info-text="activeUser.description"
-      :role="activeUser.role"
-    ></UserInfo>
-    <!-- scoped slot: allows us to STYLE content
-      don't need template wrapper if all markup can go into one slot
-    -->
-    <course-goals #default="slotProps">
-      <h2> {{ slotProps.item }}</h2>
-      <p>{{ slotProps['another-prop'] }}</p>
-    </course-goals>
+
+    <button @click="setSelectedComponent('active-goals')">Active Goals</button>
+    <button @click="setSelectedComponent('manage-goals')">Manage Goals</button>
+
+    <!-- keep-alive allows vue not to remove/delete input field data if we swap component -->
+    <!-- dynamic component placeholder: allows us to swap-in/swap out ANY component! -->
+    <keep-alive>
+      <component :is="selectedComponent"></component>
+    </keep-alive>
+
   </div>
 </template>
 
 <script>
 
 import TheHeader from './components/TheHeader.vue'
-import BadgeList from './components/BadgeList.vue';
-import UserInfo from './components/UserInfo.vue';
-import CourseGoals from './components/CourseGoals.vue';
+// import BadgeList from './components/BadgeList.vue';
+// import UserInfo from './components/UserInfo.vue';
+// import CourseGoals from './components/CourseGoals.vue';
+
+import ActiveGoals from './components/ActiveGoals.vue';
+import ManageGoals from './components/ManageGoals.vue';
 
 export default {
 
   // locally registered components
   // this is a key-value pair but gets automatically registered if you provide one value
   components: {
-    BadgeList,
+    ActiveGoals,
+    // BadgeList,
     TheHeader,
-    UserInfo,
-    CourseGoals
+    // UserInfo,
+    // CourseGoals,
+    ManageGoals
   },
 
   data() {
@@ -43,8 +45,15 @@ export default {
         description: 'Site owner and admin',
         role: 'admin',
       },
-    };
+      selectedComponent: 'active-goals'
+    }
   },
+
+  methods: {
+    setSelectedComponent(comp) {
+      this.selectedComponent = comp
+    }
+  }
 };
 </script>
 

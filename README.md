@@ -10,3 +10,5 @@ take deeper look at Components in Vue 3
 - scoped style: keep styling for the local template only (non-global style)
 - slots: allow us to receive HTML content (incl Vue features) from outside component
 - scoped slots: allow some aspects of component to be customizable
+- dynamic components: component allows us to swap in/out any component
+- keep-alive can be used with dynamic components so we don't lose input field data when we switch components
