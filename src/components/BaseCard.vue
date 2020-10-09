@@ -1,6 +1,8 @@
 <template>
   <div>
-    <!-- slots allow us to receive HTML content (incl Vue features) from outside component -->
+    <!-- slots allow us to receive HTML content (incl Vue features) from outside component
+    in this case we provide styling for any components wrapped in a BaseCard
+    -->
     <slot></slot>
   </div>
 </template>
