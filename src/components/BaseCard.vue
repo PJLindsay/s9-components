@@ -18,7 +18,14 @@
   }
 </script>
 
+<!-- scoped tells Vue to only affect this template (not global) -->
 <style scoped>
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 div {
   margin: 2rem auto;
