@@ -13,3 +13,4 @@ take deeper look at Components in Vue 3
 - dynamic components: component allows us to swap in/out any component
 - keep-alive: can be used with dynamic components so we don't lose input field data when we switch components
 - teleport: built in component allows item to be rendered somewhere else in DOM structure (e.g. render in body      element (not deeply nested in HTML))
+- working with fragments (multiple top-level elements allowed in Vue3)
