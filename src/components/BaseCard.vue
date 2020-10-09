@@ -1,8 +1,14 @@
 <template>
   <div>
+
     <!-- slots allow us to receive HTML content (incl Vue features) from outside component
     in this case we provide styling for any components wrapped in a BaseCard
     -->
+    <header>
+      <slot name="header"></slot>
+    </header>
+
+    <!-- you can leave one slot unnamed: this will be default slot -->
     <slot></slot>
   </div>
 </template>
