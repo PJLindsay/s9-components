@@ -3,11 +3,14 @@
     <h2>Manage Goals</h2>
     <input type="text" ref="goal"/>
     <button @click="setGoal">Set Goal</button>
-    <error-alert v-if="inputIsInvalid">
-      <h2>Invalid Input</h2>
-      <p>Goal field Cannot be empty</p>
-      <button @click="acknowledgeError">OK</button>
-    </error-alert>
+    <!-- render in body element (not deeply nested in HTML) -->
+    <teleport to="body">
+      <error-alert v-if="inputIsInvalid">
+        <h2>Invalid Input</h2>
+        <p>Goal field Cannot be empty</p>
+        <button @click="acknowledgeError">OK</button>
+      </error-alert>
+    </teleport>
   </div>
 </template>
 
