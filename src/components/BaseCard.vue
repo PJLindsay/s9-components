@@ -4,8 +4,13 @@
     <!-- slots allow us to receive HTML content (incl Vue features) from outside component
     in this case we provide styling for any components wrapped in a BaseCard
     -->
-    <header>
-      <slot name="header"></slot>
+
+    <!-- use v-if so we don't have empty HTML elements (header) -->
+    <header v-if="$slots.header">
+      <slot name="header">
+        <!-- we can add default/fallback content here (shown if content is not passed in) -->
+        <!-- <h2>The Default</h2> -->
+      </slot>
     </header>
 
     <!-- you can leave one slot unnamed: this will be default slot -->
@@ -15,6 +20,9 @@
 
 <script>
   export default {
+    mounted() {
+      // console.log(this.$slots.header)
+    }
   }
 </script>
 
