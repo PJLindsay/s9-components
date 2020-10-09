@@ -39,6 +39,7 @@ export default {
 };
 </script>
 
+<!-- typically Global styles go here -->
 <style>
 html {
   font-family: sans-serif;
