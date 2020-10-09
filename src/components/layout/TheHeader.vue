@@ -1,3 +1,4 @@
+<!-- NOTE: naming convention for components used once in project: TheHeader.vue -->
 <template>
   <header>
     <h1>More on Vue Components</h1>
